@@ -1,3 +1,7 @@
+global using Demo_API.Models;
+global using Demo_API.Services;
+global using System.Threading.Tasks;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ICharacterService,CharacterService>();
 
 var app = builder.Build();
 
